@@ -1,0 +1,19 @@
+<footer>
+{{#unless acceptCookie}}
+    {{#if authorised}}
+        <section class="cookie-opt-out">
+            This website uses Cookies to improve the user experience and provide essential functionality, by clicking 'Accept' you agree to our <a href="/privacy-policy">Privacy Policy</a>  and the storing of cookies on your device.
+            The purpose of cookies used in this website is solely to store your 'username', and analyze our traffic. <a href="/cookie-policy">Find out more about cookies.</a> 
+            <br>
+            <form action="/acceptCookie" method="POST" enctype="multipart/form-data" id="cookie-banner">
+                <button class="cookie-btn" type="submit" value="accept">Accept</button>
+            </form>
+        </section>
+    {{/if}}
+{{/unless}}	
+<a href="/cookie-policy">Cookies Policy</a> <a href="/privacy-policy">Privacy Policy</a> <a href="/terms-of-use">Terms Of Use</a> 
+
+<a target="_blank" href="https://github.coventry.ac.uk/5001CEM-2122/singhh48-sem2/tree/master">Source Code</a>
+</footer>
+</body>
+</html>

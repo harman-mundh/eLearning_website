@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - cov_profile.lcov - modules/content.js</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">modules</a> - content.js<span style="font-size: 80%;"> (source / <a href="content.js.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">cov_profile.lcov</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntry">87</td>
+            <td class="headerCovTableEntryLo">62.1 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2022-04-11 14:01:01</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">1</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span><span class="lineCov">          2 : /** @module content.js */</span></a>
+<span class="lineNum">       2 </span><span class="lineCov">          2 : </span>
+<span class="lineNum">       3 </span><span class="lineCov">          2 : import { db } from &quot;./db.js&quot;;</span>
+<span class="lineNum">       4 </span><span class="lineCov">          2 : </span>
+<span class="lineNum">       5 </span><span class="lineCov">          2 : /**</span>
+<span class="lineNum">       6 </span><span class="lineCov">          2 :  * Get data from add content form.</span>
+<span class="lineNum">       7 </span><span class="lineCov">          2 :  * @param {string} data</span>
+<span class="lineNum">       8 </span><span class="lineCov">          2 :  * @returns {object} affetedRows: value, lastInsertId: value </span>
+<a name="9"><span class="lineNum">       9 </span><span class="lineCov">          2 :  */</span></a>
+<span class="lineNum">      10 </span><span class="lineCov">          2 : export async function addContent(data) {</span>
+<span class="lineNum">      11 </span><span class="lineCov">          4 :   console.log(&quot;addContent()&quot;);</span>
+<span class="lineNum">      12 </span><span class="lineCov">          4 :   data.fields.username = data.username;</span>
+<span class="lineNum">      13 </span><span class="lineCov">          4 :   data.files[0].username = data.username;</span>
+<span class="lineNum">      14 </span><span class="lineCov">          4 :   data.fields.image = await saveImage(data.files[0]);</span>
+<span class="lineNum">      15 </span><span class="lineCov">          4 :   const id = await addContentDetails(data.fields);</span>
+<span class="lineNum">      16 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">      17 </span><span class="lineCov">          4 : // export async function addContent(data) {</span>
+<span class="lineNum">      18 </span><span class="lineCov">          4 : // console.log(&quot;addContent()&quot;);</span>
+<span class="lineNum">      19 </span><span class="lineCov">          4 : // data.fields.username = data.username; // string</span>
+<span class="lineNum">      20 </span><span class="lineCov">          4 : // //data.files.username = data.username; // string</span>
+<span class="lineNum">      21 </span><span class="lineCov">          4 : // data.fields.image = await saveImage(data.files[0]);</span>
+<span class="lineNum">      22 </span><span class="lineCov">          4 : // //console.log(data.fields)</span>
+<span class="lineNum">      23 </span><span class="lineCov">          4 : // //console.log(data.fields.username)</span>
+<span class="lineNum">      24 </span><span class="lineNoCov">          0 : // const id = await addContentDetails(data.fields);</span>
+<span class="lineNum">      25 </span><span class="lineNoCov">          0 : // }</span>
+<span class="lineNum">      26 </span><span class="lineNoCov">          0 : </span>
+<span class="lineNum">      27 </span><span class="lineNoCov">          0 : /**</span>
+<span class="lineNum">      28 </span><span class="lineNoCov">          0 : Get data from add content form.</span>
+<span class="lineNum">      29 </span><span class="lineNoCov">          0 : @param {string} username</span>
+<span class="lineNum">      30 </span><span class="lineNoCov">          0 : @param {string} title</span>
+<span class="lineNum">      31 </span><span class="lineNoCov">          0 : @param {string} content</span>
+<span class="lineNum">      32 </span><span class="lineNoCov">          0 : @param {string} image</span>
+<span class="lineNum">      33 </span><span class="lineNoCov">          0 : @returns {object} affetedRows: value, lastInsertId: value</span>
+<span class="lineNum">      34 </span><span class="lineNoCov">          0 : */</span>
+<span class="lineNum">      35 </span><span class="lineNoCov">          0 : //takes data from the Add form and inserts data into database with a query</span>
+<span class="lineNum">      36 </span><span class="lineNoCov">          0 : async function addContentDetails(data) {</span>
+<span class="lineNum">      37 </span><span class="lineCov">          2 :   console.log(data);</span>
+<span class="lineNum">      38 </span><span class="lineCov">          2 :   let mySql = `SELECT id FROM accounts WHERE user = &quot;${data.username}&quot;`;</span>
+<span class="lineNum">      39 </span><span class="lineCov">          2 :   let result = await db.query(mySql);</span>
+<span class="lineNum">      40 </span><span class="lineCov">          2 :   const authorid = result[0].id;</span>
+<span class="lineNum">      41 </span><span class="lineCov">          2 :   const now = new Date().toISOString();</span>
+<span class="lineNum">      42 </span><span class="lineNoCov">          0 :   const dateTime = now.slice(0, 19).replace(&quot;T&quot;, &quot; &quot;);</span>
+<span class="lineNum">      43 </span><span class="lineNoCov">          0 :   mySql = `INSERT INTO contents(authorid, title, content, image, added)\</span>
+<span class="lineNum">      44 </span><span class="lineNoCov">          0 :      VALUES(${authorid}, &quot;${data.title}&quot;, &quot;${data.content}&quot;, &quot;${data.image}&quot;, &quot;${dateTime}&quot;)`;</span>
+<span class="lineNum">      45 </span><span class="lineNoCov">          0 :   mySql = mySql.replace('&quot;&quot;', &quot;NULL&quot;);</span>
+<span class="lineNum">      46 </span><span class="lineNoCov">          0 :   result = await db.query(mySql);</span>
+<span class="lineNum">      47 </span><span class="lineNoCov">          0 :   return result.lastInsertId;</span>
+<span class="lineNum">      48 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">      49 </span><span class="lineNoCov">          0 : </span>
+<span class="lineNum">      50 </span><span class="lineNoCov">          0 : // export async function addContentDetails(data) {</span>
+<span class="lineNum">      51 </span><span class="lineCov">          1 : // console.log(data);</span>
+<span class="lineNum">      52 </span><span class="lineCov">          1 : // let mySql = SELECT id FROM accounts WHERE user = &quot;${data.username}&quot;;</span>
+<span class="lineNum">      53 </span><span class="lineCov">          1 : // let result = await db.query(mySql);</span>
+<span class="lineNum">      54 </span><span class="lineCov">          1 : // const authorid = result[0].id;</span>
+<span class="lineNum">      55 </span><span class="lineCov">          1 : // const now = new Date().toISOString();</span>
+<span class="lineNum">      56 </span><span class="lineCov">          1 : // const dateTime = now.slice(0, 19).replace(&quot;T&quot;, &quot; &quot;);</span>
+<span class="lineNum">      57 </span><span class="lineCov">          1 : // mySql = INSERT INTO contents(authorid, title, content, image, added)\ VALUES(${authorid}, &quot;${data.title}&quot;, &quot;${data.content}&quot;, &quot;${data.image}&quot;, &quot;${dateTime}&quot;);</span>
+<span class="lineNum">      58 </span><span class="lineCov">          1 : // mySql = mySql.replace('&quot;&quot;’, “NULL”);</span>
+<span class="lineNum">      59 </span><span class="lineCov">          1 : // result = await db.query(mySql);</span>
+<span class="lineNum">      60 </span><span class="lineCov">          1 : // console.log(“after query”)</span>
+<span class="lineNum">      61 </span><span class="lineCov">          1 : // console.log(result)</span>
+<span class="lineNum">      62 </span><span class="lineCov">          1 : // return true</span>
+<span class="lineNum">      63 </span><span class="lineCov">          1 : // //return result.lastInsertId;</span>
+<span class="lineNum">      64 </span><span class="lineCov">          1 : // }</span>
+<span class="lineNum">      65 </span><span class="lineCov">          1 : </span>
+<span class="lineNum">      66 </span><span class="lineCov">          1 : // save the image</span>
+<span class="lineNum">      67 </span><span class="lineCov">          1 : // add the record to content table</span>
+<span class="lineNum">      68 </span><span class="lineCov">          1 : // renames the the image and saves it into</span>
+<span class="lineNum">      69 </span><span class="lineCov">          1 : // the public upload folder</span>
+<span class="lineNum">      70 </span><span class="lineCov">          1 : /**</span>
+<span class="lineNum">      71 </span><span class="lineCov">          1 :  * Get data from add content form.</span>
+<span class="lineNum">      72 </span><span class="lineCov">          1 :  * @param {string} file</span>
+<span class="lineNum">      73 </span><span class="lineCov">          1 :  * @returns {string} new file name</span>
+<span class="lineNum">      74 </span><span class="lineCov">          1 :  */</span>
+<span class="lineNum">      75 </span><span class="lineCov">          1 : async function saveImage(file) {</span>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">          1 :   let filename = &quot;&quot;;</span></a>
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 :   if (file.contentType !== &quot;application/octet-stream&quot;) {</span>
+<span class="lineNum">      78 </span><span class="lineNoCov">          0 :     const ext = file.filename.split(&quot;.&quot;).pop();</span>
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :     const now = Date.now()</span>
+<span class="lineNum">      80 </span><span class="lineNoCov">          0 :     filename = `${file.username}-${now}.${ext}`;</span>
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :     await Deno.rename(</span>
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :       file.filename,</span>
+<span class="lineNum">      83 </span><span class="lineNoCov">          0 :       `${Deno.cwd()}/public/uploads/${filename}`,</span>
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :     );</span>
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :   }</span>
+<span class="lineNum">      86 </span><span class="lineNoCov">          0 :   return filename;</span>
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

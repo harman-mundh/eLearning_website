@@ -1,0 +1,44 @@
+{
+  "scriptId": "84",
+  "url": "file:///home/codio/workspace/uat/contents.stub.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 0,
+          "endOffset": 1703,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "addContent",
+      "ranges": [
+        {
+          "startOffset": 203,
+          "endOffset": 1115,
+          "count": 1
+        },
+        {
+          "startOffset": 805,
+          "endOffset": 1114,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "saveImage",
+      "ranges": [
+        {
+          "startOffset": 1343,
+          "endOffset": 1703,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": false
+    }
+  ]
+}

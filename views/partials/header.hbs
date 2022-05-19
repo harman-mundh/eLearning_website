@@ -1,0 +1,30 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="eLearning website for teaching about Git">
+		<meta name="author" content="Harman Singh">
+		<meta name="viewport" content= "width=device-width, initial-scale=1.0">
+		<link href="/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="/main.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.4.0/showdown.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Git-eLearning</h1>
+			{{#if authorised}}
+				{{#if path}}
+					<a href="/logout">Log out</a> <a href="/">Home page</a>
+				{{else}}
+					<a href="/logout">Log out</a>
+				{{/if}}
+			{{else}}
+				{{#if path}}
+					<a href="/login">Login</a>
+				{{else}}
+				<a href="/register">Register</a>
+				{{/if}}
+			{{/if}}
+		</header>

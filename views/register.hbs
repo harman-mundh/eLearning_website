@@ -1,0 +1,20 @@
+
+<main>
+	<p><strong>Register New User</strong></p>
+	<form action="/register" method="post">
+		<p>
+			<label for="user">Username</label><br />
+			<input type="text" name="username" placeholder="your preferred username"  value="{{body.user}}" required>
+		</p>
+		<p>
+			<label for="pass">Password</label><br />
+			<input type="password" name="password" placeholder="your chosen password " required>
+		</p>
+		<p>
+			<label for="pass2">Password (again)</label><br />
+			<input type="password" name="password2" placeholder="your chosen password " required>
+		</p>
+		<p><input type="submit" value="Register"></p>
+	</form>
+</main>
+

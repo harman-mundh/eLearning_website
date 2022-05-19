@@ -1,0 +1,28 @@
+
+<main>
+    <p><strong>Add new Content</strong></p>    
+	{{#if authorised}}
+		<p>Logged in as <strong>{{authorised}}</strong></p>
+	{{/if}}
+
+    <form action="/add" method="post" enctype="multipart/form-data">
+        <p>
+            <label for="title">Title</label></br>
+            <input type="text" name="title" placeholder="The title of the content" value="" required  autofocus>
+        </p>
+        <p>
+            <label for="content">Main content</label></br>
+        </p>    
+        <textarea type="text" name="content" placeholder="Add your main content here in markdown format" value="" autofocus  required></textarea>
+ 
+        <section></section>
+        <p>
+            <input type="file" name="image" id="image" accept="image/*">
+            <label for="image">Choose your file</label>
+            <img src="placeholder.png" /></br>
+        </p>
+        <p><input type="submit" value="Upload"></p>
+    </form>
+		  
+</main>
+

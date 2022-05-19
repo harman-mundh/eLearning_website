@@ -1,0 +1,44 @@
+{
+  "scriptId": "84",
+  "url": "file:///home/codio/workspace/modules/content.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 0,
+          "endOffset": 1694,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "addContent",
+      "ranges": [
+        {
+          "startOffset": 194,
+          "endOffset": 1106,
+          "count": 1
+        },
+        {
+          "startOffset": 796,
+          "endOffset": 1105,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "saveImage",
+      "ranges": [
+        {
+          "startOffset": 1334,
+          "endOffset": 1694,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": false
+    }
+  ]
+}

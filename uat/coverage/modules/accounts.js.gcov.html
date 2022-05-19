@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - cov_profile.lcov - modules/accounts.js</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">modules</a> - accounts.js<span style="font-size: 80%;"> (source / <a href="accounts.js.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">cov_profile.lcov</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">53</td>
+            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntryMed">82.8 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2022-04-11 14:01:01</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span><span class="lineCov">          3 : /** @module accounts.js */</span></a>
+<span class="lineNum">       2 </span><span class="lineCov">          3 : </span>
+<span class="lineNum">       3 </span><span class="lineCov">          3 : import {</span>
+<span class="lineNum">       4 </span><span class="lineCov">          3 :   compare,</span>
+<span class="lineNum">       5 </span><span class="lineCov">          3 :   genSalt,</span>
+<span class="lineNum">       6 </span><span class="lineCov">          3 :   hash,</span>
+<span class="lineNum">       7 </span><span class="lineCov">          3 : } from &quot;https://deno.land/x/bcrypt@v0.2.4/mod.ts&quot;;</span>
+<span class="lineNum">       8 </span><span class="lineCov">          3 : </span>
+<span class="lineNum">       9 </span><span class="lineCov">          3 : import { db } from &quot;./db.js&quot;;</span>
+<span class="lineNum">      10 </span><span class="lineCov">          3 : </span>
+<span class="lineNum">      11 </span><span class="lineCov">          3 : const saltRounds = 10;</span>
+<span class="lineNum">      12 </span><span class="lineCov">          3 : const salt = await genSalt(saltRounds);</span>
+<span class="lineNum">      13 </span><span class="lineCov">          3 : </span>
+<span class="lineNum">      14 </span><span class="lineCov">          3 : /**</span>
+<span class="lineNum">      15 </span><span class="lineCov">          3 :  * Checks user credentials.</span>
+<span class="lineNum">      16 </span><span class="lineCov">          3 :  * @param {string} username</span>
+<span class="lineNum">      17 </span><span class="lineCov">          3 :  * @param {string} password</span>
+<span class="lineNum">      18 </span><span class="lineCov">          3 :  * @returns {string} the username for the valid account</span>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">          3 :  */</span></a>
+<span class="lineNum">      20 </span><span class="lineCov">          3 : export async function login(data) {</span>
+<span class="lineNum">      21 </span><span class="lineCov">         12 :   console.log(data);</span>
+<span class="lineNum">      22 </span><span class="lineCov">         12 :   let mySql =</span>
+<span class="lineNum">      23 </span><span class="lineCov">         12 :     `SELECT count(id) AS count FROM accounts WHERE user=&quot;${data.username}&quot;;`;</span>
+<span class="lineNum">      24 </span><span class="lineCov">         12 :   let records = await db.query(mySql);</span>
+<span class="lineNum">      25 </span><span class="lineCov">         12 :   if (!records[0].count) {</span>
+<span class="lineNum">      26 </span><span class="lineNoCov">          0 :     throw new Error(`username &quot;${data.username}&quot; not found`);</span>
+<span class="lineNum">      27 </span><span class="lineNoCov">          0 :     alert('User not found')</span>
+<span class="lineNum">      28 </span><span class="lineNoCov">          0 :   }</span>
+<span class="lineNum">      29 </span><span class="lineCov">         18 :   mySql = `SELECT pass FROM accounts WHERE user = &quot;${data.username}&quot;;`;</span>
+<span class="lineNum">      30 </span><span class="lineCov">         18 :   records = await db.query(mySql);</span>
+<span class="lineNum">      31 </span><span class="lineCov">         18 :   const valid = await compare(data.password, records[0].pass);</span>
+<span class="lineNum">      32 </span><span class="lineCov">         12 :   if (valid === false) {</span>
+<span class="lineNum">      33 </span><span class="lineNoCov">          0 :     throw new Error(`invalid password for account &quot;${data.username}&quot;`);</span>
+<span class="lineNum">      34 </span><span class="lineNoCov">          0 :     alert('Password is invalid')</span>
+<span class="lineNum">      35 </span><span class="lineNoCov">          0 :   }</span>
+<span class="lineNum">      36 </span><span class="lineCov">         15 :   return data.username;</span>
+<span class="lineNum">      37 </span><span class="lineCov">          3 : }</span>
+<span class="lineNum">      38 </span><span class="lineCov">          3 : </span>
+<span class="lineNum">      39 </span><span class="lineCov">          3 : /**</span>
+<span class="lineNum">      40 </span><span class="lineCov">          3 :  * Inserts values in the database.</span>
+<span class="lineNum">      41 </span><span class="lineCov">          3 :  * @param {string} username</span>
+<span class="lineNum">      42 </span><span class="lineCov">          3 :  * @param {string} password</span>
+<span class="lineNum">      43 </span><span class="lineCov">          3 :  * @returns {boolean}</span>
+<span class="lineNum">      44 </span><span class="lineCov">          3 :  */</span>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          3 : </span></a>
+<span class="lineNum">      46 </span><span class="lineCov">          3 : export async function register(data) {</span>
+<span class="lineNum">      47 </span><span class="lineCov">          9 :   const password = await hash(data.password, salt);</span>
+<span class="lineNum">      48 </span><span class="lineCov">          9 :   //throw error if user already exist </span>
+<span class="lineNum">      49 </span><span class="lineCov">          9 :   let userExists = `SELECT count(id) AS count FROM accounts WHERE user=&quot;${data.username}&quot;;`;</span>
+<span class="lineNum">      50 </span><span class="lineCov">          9 :   const records = await db.query(userExists);</span>
+<span class="lineNum">      51 </span><span class="lineCov">          9 :   if (records[0].count) {</span>
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 :     throw new Error(`username &quot;${data.username}&quot; already exists`)</span>
+<span class="lineNum">      53 </span><span class="lineNoCov">          0 :     alert('Username already exists')</span>
+<span class="lineNum">      54 </span><span class="lineNoCov">          0 :     //return false</span>
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :   } else {</span>
+<span class="lineNum">      56 </span><span class="lineCov">         12 :       const mySql =</span>
+<span class="lineNum">      57 </span><span class="lineCov">         12 :       `INSERT INTO accounts(user, pass) VALUES(&quot;${data.username}&quot;, &quot;${password}&quot;)`;</span>
+<span class="lineNum">      58 </span><span class="lineCov">         12 :       console.log(mySql);</span>
+<span class="lineNum">      59 </span><span class="lineCov">         12 :       await db.query(mySql);</span>
+<span class="lineNum">      60 </span><span class="lineCov">         12 :       return true;</span>
+<span class="lineNum">      61 </span><span class="lineCov">          9 :     }</span>
+<span class="lineNum">      62 </span><span class="lineCov">          9 :   </span>
+<span class="lineNum">      63 </span><span class="lineCov">          3 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.13</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

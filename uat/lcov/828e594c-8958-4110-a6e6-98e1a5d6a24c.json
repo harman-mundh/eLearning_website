@@ -1,0 +1,87 @@
+{
+  "scriptId": "82",
+  "url": "file:///home/codio/workspace/uat/accounts.test.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 0,
+          "endOffset": 2686,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "fn",
+      "ranges": [
+        {
+          "startOffset": 352,
+          "endOffset": 782,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "fn",
+      "ranges": [
+        {
+          "startOffset": 904,
+          "endOffset": 1277,
+          "count": 1
+        },
+        {
+          "startOffset": 1094,
+          "endOffset": 1161,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "fn",
+      "ranges": [
+        {
+          "startOffset": 1399,
+          "endOffset": 1649,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "fn",
+      "ranges": [
+        {
+          "startOffset": 1770,
+          "endOffset": 2133,
+          "count": 1
+        },
+        {
+          "startOffset": 1948,
+          "endOffset": 2018,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "fn",
+      "ranges": [
+        {
+          "startOffset": 2253,
+          "endOffset": 2627,
+          "count": 1
+        },
+        {
+          "startOffset": 2436,
+          "endOffset": 2504,
+          "count": 0
+        }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

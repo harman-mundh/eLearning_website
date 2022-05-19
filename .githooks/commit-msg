@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# Hook script to check the commit log message.
+# Called by "git commit" with one argument, the name of the file
+# that has the commit message.  The hook should exit with non-zero
+# status after issuing an appropriate message if it wants to stop the
+# commit.  The hook is allowed to edit the commit message file.
+#
+# Hook used to ensure the lenght of commit message does not exceed a 
+# certain limit, if the limit is exceeded the command git commit command 
+# exit with 1, halting the process until message is fixed.
+# This hook will ensure that each commit message is withint the 
+# character limit meaning that is contains a meaningful message
+
+while read msg; do
+	if [[ ${#msg} -lt 10 ]]; then
+		echo "Your commit message is below the 10 character treshold "
+		echo "git commit was stopped, please change the message and try again"
+		echo "commit message contains ${#msg} characters"
+		exit 1
+	fi
+
+	if [[ ${#msg} -ge 50  ]]; then
+		echo "Your commit message has exceed the character limit of 50"
+		echo "git commit was stopped, please change the message and try again"
+		echo "commit message contains ${#msg} characters"
+		exit 1
+	fi
+done < "${1}"
+
+echo "Commit message is acceptable"
+
+exit 0

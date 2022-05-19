@@ -1,0 +1,84 @@
+{
+  "scriptId": "85",
+  "url": "file:///home/codio/workspace/modules/accounts.js",
+  "functions": [
+    {
+      "functionName": "",
+      "ranges": [
+        {
+          "startOffset": 0,
+          "endOffset": 1741,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "login",
+      "ranges": [
+        {
+          "startOffset": 369,
+          "endOffset": 1000,
+          "count": 3
+        },
+        {
+          "startOffset": 575,
+          "endOffset": 670,
+          "count": 1
+        },
+        {
+          "startOffset": 638,
+          "endOffset": 670,
+          "count": 0
+        },
+        {
+          "startOffset": 670,
+          "endOffset": 864,
+          "count": 2
+        },
+        {
+          "startOffset": 864,
+          "endOffset": 974,
+          "count": 1
+        },
+        {
+          "startOffset": 937,
+          "endOffset": 974,
+          "count": 0
+        },
+        {
+          "startOffset": 974,
+          "endOffset": 999,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    },
+    {
+      "functionName": "register",
+      "ranges": [
+        {
+          "startOffset": 1131,
+          "endOffset": 1740,
+          "count": 2
+        },
+        {
+          "startOffset": 1417,
+          "endOffset": 1544,
+          "count": 1
+        },
+        {
+          "startOffset": 1484,
+          "endOffset": 1544,
+          "count": 0
+        },
+        {
+          "startOffset": 1544,
+          "endOffset": 1735,
+          "count": 1
+        }
+      ],
+      "isBlockCoverage": true
+    }
+  ]
+}

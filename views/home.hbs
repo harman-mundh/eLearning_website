@@ -1,0 +1,29 @@
+
+	<main>
+		<p><strong>Home</strong></p>
+		{{#if authorised}}
+			<p>Logged in as <strong>{{authorised}}</strong></p> 
+		
+		{{/if}}
+
+		{{#if isTeacher}}
+			<section class="cookie-opt-out">
+				<a href="/add">Add Content</a>
+			</section>
+		{{/if}}
+	<section>
+	<table>
+      <tr> <th>Title</th><th>Lecturer</th><th>Added</th><th>Viewed</th> </tr>
+		{{#each contents}}
+			<tr>
+				<td>{{this.title}}</td>
+				<td>{{this.author}}</td>
+				<td>{{this.date}}</td>
+				<td>{{viewed}}</td>
+				
+			</tr>
+		{{/each}}
+      </table>
+	</section>
+		<a href="/view">View</a>
+	</main>

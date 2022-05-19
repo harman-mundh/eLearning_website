@@ -1,0 +1,14 @@
+<main>
+	<p><strong>Log in</strong></p>
+	<form action="/login" method="post">
+		<p>
+			<label for="user">Username</label><br />
+			<input type="text" name="username" placeholder="your username" value="{{body.user}}" autofocus required>
+		</p>
+		<p>
+			<label for="pass">Password</label><br />
+			<input type="password" name="password" placeholder="your password" value="{{body.pass}}" required>
+		</p>
+		<p><input type="submit" value="Log in"></p>
+	</form>
+</main>

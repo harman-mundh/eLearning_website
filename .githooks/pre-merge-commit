@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Hook script to verify what is about to be committed.
+# Called by "git merge" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message
+#
+# Hook check if user is not on master branch when running "git merge"
+# command, aborts the execution and informs user to change checked out branch 
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+
+if [[ "$BRANCH" != "master" ]]; then
+    echo "Current branch checked out is not master"
+    echo "please change branch and try again"
+    echo "you are on branch: ${BRANCH}"
+    exit 1
+fi
+
+exit 0

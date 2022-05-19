@@ -1,0 +1,16 @@
+#!/bin/sh
+
+# Hook script to verify what is about to be pushed.  Called by "git
+# push" after it has checked the remote status, but before anything has been
+# pushed.  If this script exits with a non-zero status nothing will be pushed.
+#
+# This hook checks if the user is about to push into branch "master"
+# aborts execution and informs the user about checked branch
+
+BRANCH=`git rev-parse --abbrev-ref HEAD`
+if [ "$BRANCH" = "master" ]; 
+then
+  echo "You are about to push on $BRANCH. Never directly push to master\n"
+  exit 1
+fi
+
